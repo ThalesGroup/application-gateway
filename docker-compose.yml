@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+    application-gateway:
+        image: "thalesgroup/application-gateway:1.0.0"
+        container_name: application-gateway
+        ports:
+            - "443:9443"
+            - "8443:8443"
+        environment:
+            ADMIN_CONSOLE_USER: admin
+            ADMIN_CONSOLE_PASSWORD: admin
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "5"
+                max-size: "50m"
+        restart: always 

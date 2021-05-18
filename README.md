@@ -1,46 +1,89 @@
-# Thales Open Source Template Project
+# **Overview**
 
-Template for creating a new project in the [Thales GitHub organization](https://github.com/ThalesGroup). 
+The SafeNet Agent for Application Gateway provides a containerized secure web reverse proxy, adding authentication and authorization protection to your application using identity provider SafeNet Trusted Access (STA).
 
-Each Thales OSS project repository **MUST** contain the following files at the root:
+Please refer to STA documentation for more information about SafeNet Agent for Application Gateway.
 
-- a `LICENSE` which has been chosen in accordance with legal department depending on your needs 
+# **Pre-Requisites**
 
-- a `README.md` outlining the project goals, sponsoring sig, and community contact information, [GitHub tips about README.md](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-readmes)
+Install Docker-Compose
 
-- a `CONTRIBUTING.md` outlining how to contribute to the project, how to submit a pull request and an issue
+- Run this command to download docker-compose
 
-- a `SECURITY.md` outlining how the security concerns are handled, [GitHub tips about SECURITY.md](https://docs.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)
+$ sudo curl -L&quot;https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)&quot;-o /usr/local/bin/docker-compose
 
-Below is an example of the common structure and information expected in a README.
+- Apply executable permissions to the binary:
 
-**Please keep this structure as is and only fill the content for each section according to your project.**
+$ sudo chmod +x /usr/local/bin/docker-compose
 
-If you need assistance or have question, please contact oss@thalesgroup.com 
+- Test the installation.
 
+$ docker-compose –version
 
+# **Accessing the Image**
 
-## Get started
+To load the image from Docker Hub the &#39;docker pull&#39; command should be used. The image name should be supplied with the pull command, along with a tag which corresponds to the image version number. For example:
 
-XXX project purpose it to ...
+docker pull thalesgroup/application-gateway:1.0.0
 
-**Please also add the description into the About section (Description field)**
+# **How to use this image**
 
-## Documentation
+**...via docker-compose.yml**
 
-Documentation is available at [xxx/docs](https://xxx/docs/).
+docker-compose.yml for application-gateway:
 
-You can use [GitHub pages](https://guides.github.com/features/pages/) to create your documentation.
+      version: "3.3"
 
-See an example here : https://github.com/ThalesGroup/ThalesGroup.github.io
+      services:
 
-**Please also add the documentation URL into the About section (Website field)**
+        application-gateway:
 
-## Contributing
+          image: "thalesgroup/application-gateway:1.0.0"
 
-If you are interested in contributing to the XXX project, start by reading the [Contributing guide](/CONTRIBUTING.md).
+          container_name: application-gateway
 
-## License
+          ports:
 
-The chosen license in accordance with legal department must be defined into an explicit [LICENSE](https://github.com/ThalesGroup/template-project/blob/master/LICENSE) file at the root of the repository
-You can also link this file in this README section.
+            - "443:9443"
+
+            - "8443:8443"
+
+         environment:
+
+            ADMIN_CONSOLE_USER: admin
+
+            ADMIN_CONSOLE_PASSWORD: admin
+
+         logging:
+
+            driver: "json-file"
+
+            options:
+
+              max-file: "5"
+
+              max-size: "50m"
+
+        restart: always
+
+The following environment variables are used for configuring login credentials for application-gateway Admin Console
+
+- ADMIN_CONSOLE_USER=... (defaults to "admin")
+- ADMIN_CONSOLE_PASSWORD=... (defaults to "admin")
+
+The default port mapping are as-
+
+- 443:9443= serves requests from users and proxies the connection to internal services.
+- 8443:8443= for configuring application-gateway(used for administrative purposes). Port 8443 should not be publicly exposed and restrict traffic to authorized networks only.
+Or to allow access of Application Gateway admin console only from local server, map external port number with localhost
+like : 127.0.0.1:8443:8443
+
+# **Examine the log file of the container.**
+
+docker logs -f application-gateway
+
+# **Documentation**
+
+The official documentation of the SafeNet Agent for Application Gateway is available at SafeNet Trusted Access (STA).
+
+This image is officially supported on Docker version v18.04 (or above).
