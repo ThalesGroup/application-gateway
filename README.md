@@ -1,6 +1,6 @@
 # **Overview**
 
-The SafeNet Agent for Application Gateway provides a containerized secure web reverse proxy, adding authentication and authorization protection to your application using identity provider SafeNet Trusted Access (STA).
+The SafeNet Agent for Application Gateway is designed to enable integration with unauthenticated applications that don't follow standard way of communication through SAML 2.0 or OIDC protocols. Customers would benefit with availability of a generic way to integrate with their non-standard apps. With this application gateway, the users can utilise the inbuilt features of STA like two-factor authentication, adaptive access and SSO, and bring them to their native application platforms.
 
 Please refer to STA documentation for more information about SafeNet Agent for Application Gateway.
 
@@ -80,10 +80,8 @@ like : 127.0.0.1:8443:8443
 
 # **Examine the log file of the container.**
 
-docker logs -f application-gateway
+docker logs -f application-gateway, where application-gateway is container name.
 
 # **Documentation**
 
 The official documentation of the SafeNet Agent for Application Gateway is available at SafeNet Trusted Access (STA).
-
-This image is officially supported on Docker version v18.04 (or above).
