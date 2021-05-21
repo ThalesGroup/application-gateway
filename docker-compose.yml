@@ -1,3 +1,5 @@
+# Copyright (c) 2021 Thales Group
+# this file is distributed under MIT license
 version: "3.3"
 services:
     application-gateway:
