@@ -11,6 +11,7 @@ services:
         environment:
             ADMIN_CONSOLE_USER: admin
             ADMIN_CONSOLE_PASSWORD: admin
+            ENABLE_SSL: "true"
         logging:
             driver: "json-file"
             options:
