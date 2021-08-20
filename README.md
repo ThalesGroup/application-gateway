@@ -28,7 +28,9 @@ docker pull thalesgroup/application-gateway:1.0.0
 
 # **How to use this image**
 
-**...via docker-compose.yml**
+**Download the docker-compose.yml by using the below command:-**
+
+wget -O- "https://raw.githubusercontent.com/ThalesGroup/application-gateway/main/docker-compose.yml" > ./docker-compose.yml
 
 docker-compose.yml for application-gateway:
 
