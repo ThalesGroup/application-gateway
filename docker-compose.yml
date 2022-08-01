@@ -3,7 +3,7 @@
 version: "3.3"
 services:
     application-gateway:
-        image: "thalesgroup/application-gateway:1.0.0"
+        image: "artifactory.thalesdigital.io/docker-public/application-gateway:latest"
         container_name: application-gateway
         ports:
             - "443:9443"
