@@ -1,8 +1,8 @@
 # **Overview**
 
-The SafeNet Agent for Application Gateway is designed to enable integration with unauthenticated applications that don't follow standard way of communication through SAML 2.0 or OIDC protocols. Customers would benefit with availability of a generic way to integrate with their non-standard apps. With this application gateway, the users can utilise the inbuilt features of STA like two-factor authentication, adaptive access and SSO, and bring them to their native application platforms.
+The SafeNet App Gateway is designed to enable integration with unauthenticated applications that don't follow standard way of communication through SAML 2.0 or OIDC protocols. Customers would benefit with availability of a generic way to integrate with their non-standard apps. With this application gateway, the users can utilise the inbuilt features of STA like two-factor authentication, adaptive access and SSO, and bring them to their native application platforms.
 
-Please refer to STA documentation for more information about SafeNet Agent for Application Gateway. 
+Please refer to STA documentation for more information about SafeNet App Gateway. 
 
 # **Pre-Requisites**
 
@@ -10,7 +10,7 @@ Install Docker-Compose
 
 - Run this command to download docker-compose
 
-$ sudo curl -L&quot;https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)&quot;-o /usr/local/bin/docker-compose
+$ sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)&quot;-o /usr/local/bin/docker-compose
 
 - Apply executable permissions to the binary:
 
@@ -40,7 +40,7 @@ docker-compose.yml for application-gateway:
 
         application-gateway:
 
-          image: "thalesgroup/application-gateway:1.0.0"
+          image: "artifactory.thalesdigital.io/docker-public/application-gateway:latest"
 
           container_name: application-gateway
 
