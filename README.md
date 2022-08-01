@@ -22,9 +22,9 @@ $ docker-compose –version
 
 # **Accessing the Image**
 
-To load the image from Docker Hub the &#39;docker pull&#39; command should be used. The image name should be supplied with the pull command, along with a tag which corresponds to the image version number. For example:
+To load the image the &#39;docker pull&#39; command should be used. The image name should be supplied with the pull command, along with a tag which corresponds to the image version number. For example:
 
-docker pull thalesgroup/application-gateway:1.0.0
+docker pull docker-public/application-gateway:latest
 
 # **How to use this image**
 
