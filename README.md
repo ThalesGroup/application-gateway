@@ -86,4 +86,4 @@ docker logs -f application-gateway, where application-gateway is container name.
 
 # **Documentation**
 
-The official documentation of the SafeNet Agent for Application Gateway is available at SafeNet Trusted Access (STA).
+The official documentation of the SafeNet App Gateway is available at SafeNet Trusted Access (STA).
