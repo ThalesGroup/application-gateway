@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Thales Group
+# Copyright (c) 2023 Thales Group
 # This file is distributed under MIT license
 version: "3.3"
 services:
@@ -18,3 +18,5 @@ services:
                 max-file: "5"
                 max-size: "50m"
         restart: always 
+        #volumes:
+            #- <source_directory_path>:/usr/local/thales/safeNetApplicationGateway/src/customPlugins
