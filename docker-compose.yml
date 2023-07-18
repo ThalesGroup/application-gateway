@@ -8,6 +8,7 @@ services:
         ports:
             - "443:9443"
             - "8443:8443"
+            #- "7443:7443"
         environment:
             ADMIN_CONSOLE_USER: admin
             ADMIN_CONSOLE_PASSWORD: admin
@@ -20,3 +21,4 @@ services:
         restart: always 
         #volumes:
             #- <source_directory_path>:/usr/local/thales/safeNetApplicationGateway/src/customPlugins
+            #- /efs:/usr/local/thales/safeNetApplicationGateway/localstorage
