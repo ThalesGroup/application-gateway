@@ -52,9 +52,11 @@ docker-compose.yml for application-gateway:
 
          environment:
 
-            ADMIN_CONSOLE_USER: admin
+            # Mandatory: Provide the credentials before running
 
-            ADMIN_CONSOLE_PASSWORD: admin
+            ADMIN_CONSOLE_USER:
+
+            ADMIN_CONSOLE_PASSWORD:
 
          logging:
 
@@ -68,10 +70,10 @@ docker-compose.yml for application-gateway:
 
         restart: always
 
-The following environment variables are used for configuring login credentials for application-gateway Admin Console
+The following environment variables are used for configuring login credentials for application-gateway Admin Console. These are mandatory and must be provided before running the container.
 
-- ADMIN_CONSOLE_USER=... (defaults to "admin")
-- ADMIN_CONSOLE_PASSWORD=... (defaults to "admin")
+- ADMIN_CONSOLE_USER=... (mandatory)
+- ADMIN_CONSOLE_PASSWORD=... (mandatory)
 
 The default port mapping are as-
 
